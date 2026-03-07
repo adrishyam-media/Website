@@ -14,6 +14,7 @@
     "next": "14.2.35",
     "react": "^18",
     "react-dom": "^18",
+    "resend": "^6.9.3",
     "split-type": "^0.3.4",
     "swiper": "^12.1.0"
   },

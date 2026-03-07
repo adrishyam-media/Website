@@ -3,14 +3,10 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AnimatedText from "@/components/ui/AnimatedText";
 import MagneticButton from "@/components/ui/MagneticButton";
 import { SERVICES } from "@/lib/constants";
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 export default function ServicesPage() {
   const cardsRef = useRef<HTMLDivElement>(null);
@@ -49,17 +45,17 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-dark">
+      <section className="pt-24 pb-10 md:pt-32 md:pb-16 bg-dark">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <p className="text-accent uppercase tracking-[0.3em] text-sm mb-4">What We Offer</p>
           <AnimatedText
             text="Our Services"
             as="h1"
-            className="font-display text-5xl md:text-7xl text-cream"
+            className="font-display text-3xl sm:text-5xl md:text-7xl text-cream"
             splitBy="chars"
           />
           <p className="text-cream/50 mt-6 max-w-2xl mx-auto">
-            From concept to delivery, we offer a comprehensive range of visual services tailored to elevate your brand, capture your moments, and tell your story.
+            Six services, one studio. We handle everything from the first brief to the final file — so you&apos;re not coordinating between a photographer, a videographer, and a separate editor.
           </p>
         </div>
       </section>
@@ -87,7 +83,7 @@ export default function ServicesPage() {
                 </div>
               </div>
               <div className={`${i % 2 === 1 ? "lg:order-1" : ""}`}>
-                <span className="text-accent/40 font-display text-7xl">0{i + 1}</span>
+                <span className="text-accent/40 font-display text-4xl md:text-7xl">0{i + 1}</span>
                 <h2 className="font-display text-3xl md:text-4xl text-cream mt-2 mb-4">
                   {service.title}
                 </h2>
@@ -120,20 +116,20 @@ export default function ServicesPage() {
             <AnimatedText
               text="Our Process"
               as="h2"
-              className="font-display text-4xl md:text-5xl text-cream"
+              className="font-display text-2xl sm:text-4xl md:text-5xl text-cream"
               splitBy="words"
             />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
-              { step: "01", title: "Discovery", description: "We learn about your vision, goals, and creative preferences." },
-              { step: "02", title: "Planning", description: "Detailed creative brief, mood boards, and logistics planning." },
-              { step: "03", title: "Production", description: "The shoot day — where preparation meets creativity." },
-              { step: "04", title: "Delivery", description: "Post-production, retouching, and final gallery delivery." },
+              { step: "01", title: "Discovery", description: "A 30-minute call to understand your goals, audience, and references before we commit to anything." },
+              { step: "02", title: "Planning", description: "We build a detailed brief, pull reference images, confirm locations, and plan every detail before shoot day." },
+              { step: "03", title: "Production", description: "The shoot itself — structured and efficient, with enough room to capture the unexpected." },
+              { step: "04", title: "Delivery", description: "Color grading, retouching, and your final gallery or film — delivered on the date we agreed." },
             ].map((item) => (
               <div key={item.step} className="text-center">
-                <span className="font-display text-5xl text-accent/20">{item.step}</span>
+                <span className="font-display text-3xl md:text-5xl text-accent/20">{item.step}</span>
                 <h3 className="font-display text-xl text-cream mt-2 mb-2">{item.title}</h3>
                 <p className="text-cream/60 text-sm">{item.description}</p>
               </div>
@@ -148,13 +144,13 @@ export default function ServicesPage() {
           <AnimatedText
             text="Let's Discuss Your Project"
             as="h2"
-            className="font-display text-4xl md:text-5xl text-cream mb-6"
+            className="font-display text-2xl sm:text-4xl md:text-5xl text-cream mb-6"
             splitBy="words"
           />
           <p className="text-cream/50 mb-10">
-            Every project starts with a conversation. Tell us about your vision and let&apos;s make it happen.
+            Tell us your project type, timeline, and budget. We&apos;ll respond within 24 hours with our availability and a rough outline of what we&apos;d propose.
           </p>
-          <MagneticButton href="/contact">Get a Quote</MagneticButton>
+          <MagneticButton href="/contact">Get a Custom Quote</MagneticButton>
         </div>
       </section>
     </>

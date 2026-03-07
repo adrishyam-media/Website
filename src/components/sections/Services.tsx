@@ -3,13 +3,9 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AnimatedText from "@/components/ui/AnimatedText";
 import { SERVICES } from "@/lib/constants";
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 export default function Services() {
   const gridRef = useRef<HTMLDivElement>(null);
@@ -44,14 +40,14 @@ export default function Services() {
   }, []);
 
   return (
-    <section className="py-24 md:py-32 bg-dark">
+    <section className="py-16 md:py-32 bg-dark">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <p className="text-accent uppercase tracking-[0.3em] text-sm mb-4">What We Do</p>
           <AnimatedText
             text="Our Services"
             as="h2"
-            className="font-display text-4xl md:text-6xl text-cream"
+            className="font-display text-2xl sm:text-4xl md:text-6xl text-cream"
             splitBy="words"
           />
         </div>

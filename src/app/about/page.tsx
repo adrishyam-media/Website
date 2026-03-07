@@ -3,14 +3,10 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AnimatedText from "@/components/ui/AnimatedText";
 import ParallaxImage from "@/components/ui/ParallaxImage";
 import MagneticButton from "@/components/ui/MagneticButton";
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 const MILESTONES = [
   { year: "2015", title: "The Beginning", description: "Founded in a small studio in downtown LA with a passion for visual storytelling." },
@@ -78,7 +74,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-20 bg-dark">
+      <section className="pt-24 pb-12 md:pt-32 md:pb-20 bg-dark">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -86,23 +82,25 @@ export default function AboutPage() {
               <AnimatedText
                 text="The People Behind the Lens"
                 as="h1"
-                className="font-display text-5xl md:text-6xl text-cream leading-tight mb-6"
+                className="font-display text-3xl sm:text-5xl md:text-6xl text-cream leading-tight mb-6"
                 splitBy="words"
               />
               <div className="space-y-4 text-cream/60 leading-relaxed">
                 <p>
-                  We are a collective of passionate photographers, videographers, and creative
-                  directors united by a singular belief: that every moment, every person, every brand
-                  has a story worth telling beautifully.
+                  We are a Bengaluru-based team of photographers, cinematographers, and creative
+                  directors who believe that great imagery is built before the camera is ever raised
+                  — through preparation, clear briefs, and an honest conversation about what
+                  you&apos;re trying to achieve.
                 </p>
                 <p>
-                  Our studio was born from a simple idea — that great imagery isn&apos;t just about technical
-                  perfection, but about capturing the authentic emotion and energy that makes each
-                  subject unique.
+                  Adrishyam Media was founded in 2015 with a straightforward idea: that every
+                  client — whether booking a first portrait session or a national brand campaign —
+                  deserves the same level of care and attention to detail.
                 </p>
                 <p>
-                  From intimate portrait sessions to large-scale commercial productions, we bring the
-                  same level of dedication, creativity, and attention to detail to every project.
+                  From intimate portrait sessions to large-scale commercial productions, we bring
+                  the same creative rigor and professionalism to every project. That&apos;s not a
+                  tagline — it&apos;s how we&apos;ve built a 10-year business through referrals.
                 </p>
               </div>
             </div>
@@ -129,7 +127,7 @@ export default function AboutPage() {
           ].map((stat) => (
             <div key={stat.label}>
               <div className="flex items-baseline justify-center gap-1">
-                <span className="stat-number font-display text-5xl text-accent" data-target={stat.value}>
+                <span className="stat-number font-display text-3xl sm:text-5xl text-accent" data-target={stat.value}>
                   0
                 </span>
                 {stat.suffix && <span className="font-display text-3xl text-accent">{stat.suffix}</span>}
@@ -148,7 +146,7 @@ export default function AboutPage() {
             <AnimatedText
               text="Meet Our Creatives"
               as="h2"
-              className="font-display text-4xl md:text-5xl text-cream"
+              className="font-display text-2xl sm:text-4xl md:text-5xl text-cream"
               splitBy="words"
             />
           </div>
@@ -197,7 +195,7 @@ export default function AboutPage() {
             <AnimatedText
               text="Milestones"
               as="h2"
-              className="font-display text-4xl md:text-5xl text-cream"
+              className="font-display text-2xl sm:text-4xl md:text-5xl text-cream"
               splitBy="words"
             />
           </div>
@@ -235,9 +233,9 @@ export default function AboutPage() {
             splitBy="words"
           />
           <p className="text-cream/50 mb-10">
-            We&apos;d love to hear about your project. Let&apos;s create something beautiful.
+            Tell us what you&apos;re working on. We&apos;ll reply within 24 hours with our availability and next steps.
           </p>
-          <MagneticButton href="/contact">Start a Conversation</MagneticButton>
+          <MagneticButton href="/contact">Book a Free Consultation</MagneticButton>
         </div>
       </section>
     </>

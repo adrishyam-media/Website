@@ -17,37 +17,37 @@ export const SERVICES = [
   {
     title: "Photo Shoots",
     description:
-      "Professional photography sessions tailored to your vision. From intimate portraits to grand productions, we capture every detail with precision.",
+      "Whether it's a national brand campaign or an intimate portrait session, every shoot starts with a detailed brief and ends with a curated gallery. We've shot for major brands and first-time clients — the same care goes into both.",
     image: "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=600&h=400&fit=crop",
   },
   {
     title: "Video Production",
     description:
-      "Cinematic video content that tells your story. From concept to final cut, we deliver stunning visual narratives.",
+      "From 30-second social ads to 10-minute brand films, we handle concept, crew, and color grade in-house. No outsourcing, no middlemen — just content that performs.",
     image: "https://images.unsplash.com/photo-1579566346927-c68383817a25?w=600&h=400&fit=crop",
   },
   {
     title: "Editing & Retouching",
     description:
-      "Meticulous post-production that elevates every frame. Color grading, retouching, and compositing at the highest level.",
+      "Your shoot doesn't end when the camera stops rolling. Our in-house team handles color grading, retouching, and compositing — typically delivered within two weeks of your shoot date.",
     image: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=600&h=400&fit=crop",
   },
   {
     title: "Event Coverage",
     description:
-      "Comprehensive documentation of your special moments. Weddings, galas, corporate events — captured with artistry.",
+      "We cover weddings, galas, and corporate events with a multi-photographer approach, a detailed shot list reviewed with you in advance, and full redundancy so nothing gets missed.",
     image: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=600&h=400&fit=crop",
   },
   {
     title: "Commercial Work",
     description:
-      "High-impact imagery for brands and businesses. Product photography, advertising campaigns, and editorial content.",
+      "Product shots that move inventory. Campaign imagery that stops the scroll. We've produced commercial work for national brands and direct-to-consumer startups — the same level of production regardless of your size.",
     image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&h=400&fit=crop",
   },
   {
     title: "Creative Direction",
     description:
-      "End-to-end creative vision for your projects. We conceptualize, plan, and execute visual stories that resonate.",
+      "Not sure exactly what you need? That's what we're here for. Our creative director will develop mood boards, scout locations, and build a visual concept before we touch the camera.",
     image: "https://images.unsplash.com/photo-1493863641943-9b68992a8d07?w=600&h=400&fit=crop",
   },
 ];
@@ -124,25 +124,25 @@ export const PORTFOLIO_CATEGORIES = ["All", "Wedding", "Commercial", "Portrait",
 export const TESTIMONIALS = [
   {
     quote:
-      "Working with Lens & Light was an extraordinary experience. They captured our wedding day with such artistry and emotion — every photo tells a story.",
+      "We had 200 guests and a very specific vision. Adrishyam Media delivered a full gallery within 10 days, and every single photo looked like it belonged in a magazine. We've referred them to three couples since.",
     name: "Sarah & James Mitchell",
     project: "Wedding Photography",
   },
   {
     quote:
-      "The team's creative vision transformed our brand imagery completely. The commercial shots exceeded every expectation we had.",
+      "We needed a full product shoot and lifestyle campaign completed in two days. They arrived with a shot list, a mood board, and a full crew. The images went live on our site the following week.",
     name: "David Chen",
     project: "Brand Campaign",
   },
   {
     quote:
-      "Absolutely stunning portrait work. They have an incredible ability to make you feel comfortable and the results speak for themselves.",
+      "I've had professional headshots done twice before and hated how stiff they looked. These were completely different. They talked to me for 20 minutes before picking up the camera — and I ended up with 15 shots I actually use.",
     name: "Elena Rodriguez",
     project: "Portrait Session",
   },
   {
     quote:
-      "From pre-production to final delivery, the professionalism and creativity were unmatched. Our video content has never looked better.",
+      "We brought them in for a brand film with a 3-week deadline. They handled the brief, the shoot, and the edit — and delivered two days early. The video has been our best-performing piece of content.",
     name: "Marcus Thompson",
     project: "Video Production",
   },

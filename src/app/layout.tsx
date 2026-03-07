@@ -21,15 +21,15 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Lens & Light Studio | Premium Photography & Videography",
+  title: "Adrishyam Media | Photography & Videography",
   description:
     "Premium visual storytelling for brands, weddings, and creative projects. Cinematic photography and videography that captures moments worth remembering.",
   icons: {
     icon: "/favicon.svg",
   },
   openGraph: {
-    title: "Lens & Light Studio",
-    description: "Premium Photography & Videography Studio",
+    title: "Adrishyam Media",
+    description: "Premium Photography & Videography",
     type: "website",
   },
 };

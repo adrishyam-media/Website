@@ -3,13 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AnimatedText from "@/components/ui/AnimatedText";
 import { PORTFOLIO_ITEMS, PORTFOLIO_CATEGORIES } from "@/lib/constants";
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 export default function PortfolioPage() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -53,17 +49,17 @@ export default function PortfolioPage() {
   return (
     <>
       {/* Hero Banner */}
-      <section className="pt-32 pb-16 bg-dark">
+      <section className="pt-24 pb-10 md:pt-32 md:pb-16 bg-dark">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <p className="text-accent uppercase tracking-[0.3em] text-sm mb-4">Our Work</p>
           <AnimatedText
             text="Portfolio"
             as="h1"
-            className="font-display text-5xl md:text-7xl text-cream"
+            className="font-display text-3xl sm:text-5xl md:text-7xl text-cream"
             splitBy="chars"
           />
           <p className="text-cream/50 mt-6 max-w-xl mx-auto">
-            A curated collection of our finest work across weddings, commercial projects, portraits, and nature photography.
+            Ten years of commercial campaigns, wedding films, portraits, and editorial work — selected from 500+ projects.
           </p>
         </div>
       </section>

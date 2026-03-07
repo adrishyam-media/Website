@@ -4,13 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AnimatedText from "@/components/ui/AnimatedText";
 import { PORTFOLIO_ITEMS, PORTFOLIO_CATEGORIES } from "@/lib/constants";
-
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -52,14 +47,14 @@ export default function Portfolio() {
   }, [activeCategory]);
 
   return (
-    <section className="py-24 md:py-32 bg-dark-light">
+    <section className="py-16 md:py-32 bg-dark-light">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <p className="text-accent uppercase tracking-[0.3em] text-sm mb-4">Portfolio</p>
           <AnimatedText
             text="Selected Works"
             as="h2"
-            className="font-display text-4xl md:text-6xl text-cream"
+            className="font-display text-2xl sm:text-4xl md:text-6xl text-cream"
             splitBy="words"
           />
         </div>
@@ -84,7 +79,7 @@ export default function Portfolio() {
         {/* Grid */}
         <div
           ref={gridRef}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6"
         >
           {filtered.map((item) => (
             <Link

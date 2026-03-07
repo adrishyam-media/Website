@@ -8,7 +8,12 @@ export default function CustomCursor() {
 
   useEffect(() => {
     const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
-    if (isTouchDevice) return;
+    if (isTouchDevice) {
+      document.body.style.cursor = "";
+      return;
+    }
+
+    document.body.style.cursor = "none";
 
     const cursor = cursorRef.current;
     const dot = cursorDotRef.current;
@@ -45,7 +50,7 @@ export default function CustomCursor() {
     };
 
     document.addEventListener("mousemove", onMouseMove);
-    requestAnimationFrame(animate);
+    const rafId = requestAnimationFrame(animate);
 
     const hoverables = document.querySelectorAll("a, button, [data-cursor-hover]");
     hoverables.forEach((el) => {
@@ -53,9 +58,8 @@ export default function CustomCursor() {
       el.addEventListener("mouseleave", onMouseLeaveHoverable);
     });
 
-    document.body.style.cursor = "none";
-
     return () => {
+      cancelAnimationFrame(rafId);
       document.removeEventListener("mousemove", onMouseMove);
       hoverables.forEach((el) => {
         el.removeEventListener("mouseenter", onMouseEnterHoverable);

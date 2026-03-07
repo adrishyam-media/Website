@@ -46,18 +46,18 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-5xl">
         <p className="text-accent uppercase tracking-[0.4em] text-sm mb-6 animate-fade-in">
-          Photography & Videography
+          Bengaluru · Photography & Film
         </p>
 
         <AnimatedText
-          text="We Capture Moments That Last Forever"
+          text="Premium Photography & Film for Brands and Weddings That Demand the Best"
           as="h1"
-          className="font-display text-5xl md:text-7xl lg:text-8xl text-cream leading-[1.1] mb-8"
+          className="font-display text-3xl sm:text-5xl md:text-7xl lg:text-8xl text-cream leading-[1.1] mb-8"
           splitBy="words"
         />
 
         <AnimatedText
-          text="Premium visual storytelling for brands, weddings, and creative projects. Every frame tells a story."
+          text="Commercial campaigns, wedding films, and brand imagery — crafted in Bengaluru and delivered worldwide."
           as="p"
           className="text-cream/60 text-lg md:text-xl max-w-2xl mx-auto mb-12"
           delay={0.5}
@@ -65,7 +65,7 @@ export default function Hero() {
         />
 
         <div className="animate-fade-in" style={{ animationDelay: "1s" }}>
-          <MagneticButton href="/portfolio">View Our Work</MagneticButton>
+          <MagneticButton href="/portfolio">Explore Our Portfolio</MagneticButton>
         </div>
       </div>
 

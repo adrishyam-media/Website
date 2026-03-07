@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import Logo from "@/components/ui/Logo";
 
 export default function Loader() {
   const [show, setShow] = useState(true);
@@ -50,8 +51,7 @@ export default function Loader() {
       className="fixed inset-0 z-[9998] bg-dark flex flex-col items-center justify-center"
     >
       <div ref={brandRef} className="text-center opacity-0 translate-y-4">
-        <h1 className="font-display text-5xl md:text-7xl text-cream mb-4">Lens & Light</h1>
-        <p className="text-muted uppercase tracking-[0.3em] text-sm">Studio</p>
+        <Logo large />
       </div>
       <div className="absolute bottom-12 right-12">
         <span ref={counterRef} className="font-display text-8xl text-cream/10">

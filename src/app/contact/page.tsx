@@ -2,13 +2,9 @@
 
 import { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AnimatedText from "@/components/ui/AnimatedText";
 import { SOCIAL_LINKS } from "@/lib/constants";
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 export default function ContactPage() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -21,6 +17,8 @@ export default function ContactPage() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -42,25 +40,40 @@ export default function ContactPage() {
     return () => ctx.revert();
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setError("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Something went wrong.");
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-dark">
+      <section className="pt-24 pb-10 md:pt-32 md:pb-16 bg-dark">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <p className="text-accent uppercase tracking-[0.3em] text-sm mb-4">Say Hello</p>
+          <p className="text-accent uppercase tracking-[0.3em] text-sm mb-4">Book a Project</p>
           <AnimatedText
-            text="Get in Touch"
+            text="Let's Discuss Your Project"
             as="h1"
-            className="font-display text-5xl md:text-7xl text-cream"
+            className="font-display text-3xl sm:text-5xl md:text-7xl text-cream"
             splitBy="chars"
           />
           <p className="text-cream/50 mt-6 max-w-xl mx-auto">
-            Have a project in mind? We&apos;d love to hear from you. Fill out the form below or reach out directly.
+            Fill in the form and we&apos;ll reply within 24 hours. Prefer to skip the form? Email us directly at hello@adrishyam.media.
           </p>
         </div>
       </section>
@@ -176,11 +189,15 @@ export default function ContactPage() {
                   </label>
                 </div>
 
+                {error && (
+                  <p className="text-red-400 text-sm">{error}</p>
+                )}
                 <button
                   type="submit"
-                  className="group relative inline-flex items-center gap-2 px-8 py-4 border border-accent text-accent uppercase tracking-widest text-sm hover:bg-accent hover:text-dark transition-colors duration-500"
+                  disabled={submitting}
+                  className="group relative inline-flex items-center gap-2 px-8 py-4 border border-accent text-accent uppercase tracking-widest text-sm hover:bg-accent hover:text-dark transition-colors duration-500 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Send Message
+                  {submitting ? "Sending..." : "Send Message"}
                   <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
                     &rarr;
                   </span>
@@ -194,17 +211,17 @@ export default function ContactPage() {
             <div>
               <h3 className="font-display text-2xl text-cream mb-4">Studio Location</h3>
               <div className="space-y-2 text-cream/50">
-                <p>123 Creative Avenue, Suite 400</p>
-                <p>Los Angeles, CA 90028</p>
-                <p>United States</p>
+                <p>Add your studio address</p>
+                <p>Bengaluru, Karnataka</p>
+                <p>India</p>
               </div>
             </div>
 
             <div>
               <h3 className="font-display text-2xl text-cream mb-4">Contact Details</h3>
               <div className="space-y-2 text-cream/50">
-                <p>hello@lensandlight.studio</p>
-                <p>+1 (555) 234-5678</p>
+                <p>hello@adrishyam.media</p>
+                <p>+91 — add your number</p>
                 <p>Mon — Fri: 9:00 AM — 6:00 PM</p>
               </div>
             </div>

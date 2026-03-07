@@ -2,13 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AnimatedText from "@/components/ui/AnimatedText";
 import { TESTIMONIALS } from "@/lib/constants";
-
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 export default function Testimonials() {
   const [active, setActive] = useState(0);
@@ -48,18 +43,18 @@ export default function Testimonials() {
         }}
       />
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
         <p className="text-accent uppercase tracking-[0.3em] text-sm mb-4">Testimonials</p>
         <AnimatedText
           text="What Our Clients Say"
           as="h2"
-          className="font-display text-4xl md:text-5xl text-cream mb-16"
+          className="font-display text-2xl sm:text-4xl md:text-5xl text-cream mb-10 md:mb-16"
           splitBy="words"
         />
 
         <div ref={quoteRef} className="min-h-[200px]">
           <div className="font-display text-6xl text-accent/20 mb-4">&ldquo;</div>
-          <p className="text-cream/80 text-lg md:text-xl leading-relaxed italic max-w-3xl mx-auto mb-8">
+          <p className="text-cream/80 text-base md:text-xl leading-relaxed italic max-w-3xl mx-auto mb-8">
             {TESTIMONIALS[active].quote}
           </p>
           <p className="text-cream font-medium">{TESTIMONIALS[active].name}</p>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useCallback } from "react";
+import Link from "next/link";
 
 interface MagneticButtonProps {
   children: React.ReactNode;
@@ -50,7 +51,7 @@ export default function MagneticButton({
 
   if (href) {
     return (
-      <a
+      <Link
         ref={buttonRef as React.RefObject<HTMLAnchorElement>}
         href={href}
         className={baseClass}
@@ -61,7 +62,7 @@ export default function MagneticButton({
         <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
           &rarr;
         </span>
-      </a>
+      </Link>
     );
   }
 

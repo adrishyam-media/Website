@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NAV_LINKS } from "@/lib/constants";
+import Logo from "@/components/ui/Logo";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -35,8 +36,8 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-          <Link href="/" className="font-display text-2xl text-cream tracking-wider">
-            Lens & Light
+          <Link href="/" aria-label="Adrishyam Media — Home">
+            <Logo />
           </Link>
 
           {/* Desktop Nav */}
