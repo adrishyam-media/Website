@@ -1,28 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const RATE_LIMIT_MAP = new Map<string, { count: number; resetAt: number }>();
-const RATE_LIMIT_MAX = 3;
-const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000; // 1 hour
-
-function getRateLimit(ip: string): boolean {
-  const now = Date.now();
-  const entry = RATE_LIMIT_MAP.get(ip);
-  if (!entry || now > entry.resetAt) {
-    RATE_LIMIT_MAP.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
-    return true;
-  }
-  if (entry.count >= RATE_LIMIT_MAX) return false;
-  entry.count++;
-  return true;
-}
-
 export async function POST(req: NextRequest) {
-  const ip = req.headers.get("x-forwarded-for") ?? "unknown";
-  if (!getRateLimit(ip)) {
-    return NextResponse.json({ error: "Too many requests. Try again later." }, { status: 429 });
-  }
-
   const body = await req.json().catch(() => null);
   if (!body) return NextResponse.json({ error: "Invalid request." }, { status: 400 });
 
@@ -48,7 +27,7 @@ export async function POST(req: NextRequest) {
 
   const resend = new Resend(apiKey);
   const { error } = await resend.emails.send({
-    from: "Adrishyam Media Contact <onboarding@resend.dev>",
+    from: `Adrishyam Media <${process.env.RESEND_FROM_EMAIL ?? "onboarding@resend.dev"}>`,
     to: recipient,
     replyTo: email,
     subject: `New enquiry: ${projectType} — ${name}`,
